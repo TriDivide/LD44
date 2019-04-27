@@ -2,22 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class PlayerMotor : MonoBehaviour {
 
     [SerializeField]
     private Component player;
 
+    [SerializeField]
+    private Camera cam;
+
     private Vector3 velocity = Vector3.zero;
     private Vector3 rotation = Vector3.zero;
 
-    private Rigidbody rb;
+    private Rigidbody playerRigidbody;
 
     // Use this for initialization
     void Start() {
-        rb = player.GetComponent<Rigidbody>();
-        if (rb != null) {
-            print("we have a player rigidbody");
-        }
+        playerRigidbody = GetComponent<Rigidbody>();
+
     }
 
     public void Move(Vector3 movementVelocity) {
@@ -34,16 +36,15 @@ public class PlayerMotor : MonoBehaviour {
     }
 
     private void PerformMovement() {
-        if (rb != null && velocity != Vector3.zero) {
+        if (velocity != Vector3.zero) {
             print("Moving to position");
-            rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
+            playerRigidbody.MovePosition(playerRigidbody.position + velocity * Time.fixedDeltaTime);
         }
     }
 
     private void PerformRotation() {
-        if (rb != null) {
-            print("rotating player");
-            rb.MoveRotation(rb.rotation * Quaternion.Euler(rotation));
-        }
+        print("rotating player");
+        playerRigidbody.MoveRotation(playerRigidbody.rotation * Quaternion.Euler(rotation));
+        
     }
 }
