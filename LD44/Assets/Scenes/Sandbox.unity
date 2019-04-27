@@ -816,6 +816,11 @@ Prefab:
       propertyPath: healthText
       value: 
       objectReference: {fileID: 1265668908}
+    - target: {fileID: 114588804109433302, guid: a47f71ea834c2534080a87575d37b741,
+        type: 2}
+      propertyPath: collectableText
+      value: 
+      objectReference: {fileID: 2015446518}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a47f71ea834c2534080a87575d37b741, type: 2}
   m_IsPrefabAsset: 0
@@ -1255,6 +1260,11 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114063106589668502, guid: e8d91cedbb878314194b1a619a953fd6,
+        type: 2}
+      propertyPath: m_Text
+      value: x Remaining
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8d91cedbb878314194b1a619a953fd6, type: 2}
@@ -2173,6 +2183,12 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf300a4f8b7af2446aea8b4ef6990f14, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &2015446518 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114063106589668502, guid: e8d91cedbb878314194b1a619a953fd6,
+    type: 2}
+  m_PrefabInternal: {fileID: 946865884}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &2038697114
 GameObject:
   m_ObjectHideFlags: 0

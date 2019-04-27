@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour {
     private float mouseSpeed = 3f;
 
     private PlayerMotor motor;
+
 	// Use this for initialization
 	void Start () {
         motor = GetComponent<PlayerMotor>();
@@ -43,7 +44,8 @@ public class PlayerController : MonoBehaviour {
 
     void OnTriggerEnter(Collider other) {
         print("collided with object: " + other.gameObject.tag);
-        if (other.gameObject.tag == "CollectableOne")
+        if (other.gameObject.tag == "CollectableOne") {
             Destroy(other.gameObject);
+        }
     }
 }

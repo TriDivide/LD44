@@ -52,5 +52,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthText: {fileID: 0}
-  collectableText: {fileID: 114063106589668502, guid: e8d91cedbb878314194b1a619a953fd6,
-    type: 2}
+  collectableText: {fileID: 0}
