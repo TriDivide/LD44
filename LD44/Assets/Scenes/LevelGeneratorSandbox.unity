@@ -121,6 +121,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 328586295}
+  - component: {fileID: 328586296}
   m_Layer: 0
   m_Name: MazeManager
   m_TagString: Untagged
@@ -141,6 +142,21 @@ Transform:
   m_Father: {fileID: 1167449890}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &328586296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 328586294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa73c06d384ed234392d8fbfbd4c1fe6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mazeRows: 10
+  mazeColumns: 10
+  wall: {fileID: 1682463741026240, guid: 574bd04ae4d18304cbe32be4d985ba12, type: 2}
+  size: 6
 --- !u!1 &1114090154
 GameObject:
   m_ObjectHideFlags: 0
@@ -192,7 +208,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1167449889}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 41.64694, y: 19.943695, z: -1.607202}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 328586295}
@@ -274,11 +290,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4728674433189630, guid: fad44f27c34370549b8ce329a4d6a506, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 69
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4728674433189630, guid: fad44f27c34370549b8ce329a4d6a506, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.1
+      value: 0.51
       objectReference: {fileID: 0}
     - target: {fileID: 4728674433189630, guid: fad44f27c34370549b8ce329a4d6a506, type: 2}
       propertyPath: m_LocalPosition.z
