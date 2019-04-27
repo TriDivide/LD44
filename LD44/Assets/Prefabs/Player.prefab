@@ -37,6 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4728674433189630}
   - component: {fileID: 114224950067978072}
+  - component: {fileID: 114747980898456108}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -205,6 +206,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   mouseSpeed: 3
+--- !u!114 &114747980898456108
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1053762942533152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a73e784738c2fa44accba213186e957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 4498349467995890}
 --- !u!136 &136577764690491498
 CapsuleCollider:
   m_ObjectHideFlags: 1

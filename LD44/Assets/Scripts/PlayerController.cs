@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+[RequireComponent(typeof(PlayerMotor))]
 public class PlayerController : MonoBehaviour {
 
     [SerializeField]
@@ -9,10 +11,10 @@ public class PlayerController : MonoBehaviour {
     [SerializeField]
     private float mouseSpeed = 3f;
 
-
+    private PlayerMotor motor;
 	// Use this for initialization
 	void Start () {
-	    	
+        motor = GetComponent<PlayerMotor>();
 	}
 	
 	// Update is called once per frame
@@ -26,7 +28,12 @@ public class PlayerController : MonoBehaviour {
 
         Vector3 velocity = (moveHorizontal + moveVertical).normalized * speed;
 
+        motor.Move(velocity);
 
         // Turning
+        float rotation = Input.GetAxisRaw("Mouse X");
+        Vector3 rotateVector = new Vector3(0f, rotation, 0f) * mouseSpeed;
+
+        motor.Rotate(rotateVector);
 	}
 }
