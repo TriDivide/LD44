@@ -40,4 +40,10 @@ public class PlayerController : MonoBehaviour {
             PlayerModel.Instance.UpdateHealth(-1);
         }
     }
+
+    void OnTriggerEnter(Collider other) {
+        print("collided with object: " + other.gameObject.tag);
+        if (other.gameObject.tag == "CollectableOne")
+            Destroy(other.gameObject);
+    }
 }
