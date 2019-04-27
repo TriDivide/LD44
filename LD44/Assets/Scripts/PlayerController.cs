@@ -35,5 +35,9 @@ public class PlayerController : MonoBehaviour {
         Vector3 rotateVector = new Vector3(0f, rotation, 0f) * mouseSpeed;
 
         motor.Rotate(rotateVector);
-	}
+
+        if (Input.GetKeyDown("space")) {
+            PlayerModel.Instance.UpdateHealth(-1);
+        }
+    }
 }
