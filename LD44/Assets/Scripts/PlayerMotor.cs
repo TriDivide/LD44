@@ -37,13 +37,11 @@ public class PlayerMotor : MonoBehaviour {
 
     private void PerformMovement() {
         if (velocity != Vector3.zero) {
-            print("Moving to position");
             playerRigidbody.MovePosition(playerRigidbody.position + velocity * Time.fixedDeltaTime);
         }
     }
 
     private void PerformRotation() {
-        print("rotating player");
         playerRigidbody.MoveRotation(playerRigidbody.rotation * Quaternion.Euler(rotation));
         
     }
