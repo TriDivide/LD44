@@ -8,10 +8,16 @@ public class UIManager : MonoBehaviour {
     [SerializeField]
     private Text healthText, collectableText;
 
+    private GameManager manager;
+
     private int collectableCount;
-	
-	// Update is called once per frame
-	void Update () {
+
+    private void Start() {
+        manager = GetComponent<GameManager>();
+    }
+
+    // Update is called once per frame
+    void Update () {
         float currentHealth = PlayerModel.Instance.getHealth();
         print("Number of Collectables: " + GameObject.FindGameObjectsWithTag("CollectableOne").Length.ToString());
         healthText.text = "Blood = " + currentHealth + "/100";
@@ -20,5 +26,9 @@ public class UIManager : MonoBehaviour {
 
         print("collectableCount" + collectableCount);
         collectableText.text = collectableCount.ToString() + " Remaining";
+
+        if (collectableCount <= 0) {
+            manager.showGameOverScreen();
+        }
     }
 }
