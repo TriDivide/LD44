@@ -31,10 +31,14 @@ public class PlayerMotor : MonoBehaviour {
     }
 
     private void PerformMovement() {
-
+        if (rb != null && velocity != Vector3.zero) {
+            rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
+        }
     }
 
     private void PerformRotation() {
-
+        if (rb != null) {
+            rb.MoveRotation(rb.rotation * Quaternion.Euler(rotation));
+        }
     }
 }
