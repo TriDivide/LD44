@@ -15,6 +15,9 @@ public class PlayerMotor : MonoBehaviour {
     // Use this for initialization
     void Start() {
         rb = player.GetComponent<Rigidbody>();
+        if (rb != null) {
+            print("we have a player rigidbody");
+        }
     }
 
     public void Move(Vector3 movementVelocity) {
@@ -32,12 +35,14 @@ public class PlayerMotor : MonoBehaviour {
 
     private void PerformMovement() {
         if (rb != null && velocity != Vector3.zero) {
+            print("Moving to position");
             rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
         }
     }
 
     private void PerformRotation() {
         if (rb != null) {
+            print("rotating player");
             rb.MoveRotation(rb.rotation * Quaternion.Euler(rotation));
         }
     }
