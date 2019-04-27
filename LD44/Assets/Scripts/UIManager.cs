@@ -28,6 +28,7 @@ public class UIManager : MonoBehaviour {
         collectableText.text = collectableCount.ToString() + " Remaining";
 
         if (collectableCount <= 0) {
+            print("show screen");
             manager.showGameOverScreen();
         }
     }
