@@ -12,6 +12,7 @@ TagManager:
   - PortalTrigger
   - SecondCamera
   - Enemy
+  - cell
   layers:
   - Default
   - TransparentFX

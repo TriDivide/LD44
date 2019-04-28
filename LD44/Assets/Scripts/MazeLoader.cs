@@ -24,11 +24,13 @@ public class MazeLoader : MonoBehaviour {
         ma.CreateMaze();
         GameObject[] cells = GameObject.FindGameObjectsWithTag("cell");
 
-        for(int i = 0; i < cells.Length; i++) {
-            NavMeshSurface surface = cells[i].GetComponent<NavMeshSurface>();
+        if (cells != null) {
+            for (int i = 0; i < cells.Length; i++) {
+                NavMeshSurface surface = cells[i].GetComponent<NavMeshSurface>();
 
-            if (surface != null) {
-                surface.BuildNavMesh();
+                if (surface != null) {
+                    surface.BuildNavMesh();
+                }
             }
         }
     }
