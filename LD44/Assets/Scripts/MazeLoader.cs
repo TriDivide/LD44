@@ -5,9 +5,12 @@ public class MazeLoader : MonoBehaviour {
     [SerializeField]
     private int mazeRows, mazeColumns;
     [SerializeField]
-    private GameObject wall;
+    private GameObject wall, collectable;
     [SerializeField]
     private float size = 2f;
+
+    [SerializeField]
+    private int number = 5;
 
     private MazeCell[,] mazeCells;
 
@@ -35,6 +38,14 @@ public class MazeLoader : MonoBehaviour {
                 mazeCells[r, c].floor = Instantiate(wall, new Vector3(r * size, -(size / 2f), c * size), Quaternion.identity) as GameObject;
                 mazeCells[r, c].floor.name = "Floor " + r + "," + c;
                 mazeCells[r, c].floor.transform.Rotate(Vector3.right, 90f);
+
+                // add a collectable at position.
+                int random = Random.Range(1, 10);
+                if (random == number) {
+                    mazeCells[r, c].item = Instantiate(collectable, new Vector3(r * size, -(size / 2f) + 1, c * size), Quaternion.identity) as GameObject;
+                    mazeCells[r, c].item.name = "Item " + r + ", " + c;
+                    mazeCells[r, c].item.transform.Rotate(Vector3.right, 90f);
+                }
 
                 if (c == 0) {
                     mazeCells[r, c].westWall = Instantiate(wall, new Vector3(r * size, 0, (c * size) - (size / 2f)), Quaternion.identity) as GameObject;

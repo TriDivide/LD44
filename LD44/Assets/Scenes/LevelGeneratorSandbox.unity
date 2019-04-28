@@ -156,7 +156,10 @@ MonoBehaviour:
   mazeRows: 10
   mazeColumns: 10
   wall: {fileID: 1682463741026240, guid: 574bd04ae4d18304cbe32be4d985ba12, type: 2}
+  collectable: {fileID: 1131092892221834, guid: bf300a4f8b7af2446aea8b4ef6990f14,
+    type: 2}
   size: 6
+  number: 5
 --- !u!1 &1114090154
 GameObject:
   m_ObjectHideFlags: 0
