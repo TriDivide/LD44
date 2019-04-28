@@ -24,6 +24,8 @@ public class MazeLoader : MonoBehaviour {
         ma.CreateMaze();
         GameObject[] cells = GameObject.FindGameObjectsWithTag("cell");
 
+        print("MazeCElls: " + mazeCells.Length);
+        print("cells: " + cells.Length);
         if (cells != null) {
             for (int i = 0; i < cells.Length; i++) {
                 NavMeshSurface surface = cells[i].GetComponent<NavMeshSurface>();
@@ -60,10 +62,14 @@ public class MazeLoader : MonoBehaviour {
                     mazeCells[r, c].item.transform.Rotate(Vector3.right, 90f);
                 }
 
+
+                // Adds an enemy at position
                 if (random == enemyNumber) {
-                    mazeCells[r, c].hostile = Instantiate(hostile, new Vector3(r * size, -(size / 2f) + 3, c * size), Quaternion.identity) as GameObject;
-                    mazeCells[r, c].hostile.name = "hostile " + r + ", " + c;
-                    mazeCells[r, c].hostile.transform.Rotate(Vector3.right, 90f);
+                    
+                    mazeCells[r, c].hostile = Instantiate(hostile, new Vector3(r * size, 3, c * size), hostile.transform.rotation) as GameObject;
+                    GameObject baddy = mazeCells[r, c].hostile;
+                    baddy.name = "hostile " + r + ", " + c;
+                    //baddy.transform.Rotate(Vector3.right, 90f);
                 }
 
                 if (c == 0) {

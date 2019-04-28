@@ -19,7 +19,8 @@ public class EnemyController : MonoBehaviour {
         agent = GetComponent<NavMeshAgent>();
 
         if (agent != null) {
-            print("got the agent");
+           // print("got the agent");
+            agent.Warp(transform.position);
         }
 	}
 	
@@ -28,6 +29,7 @@ public class EnemyController : MonoBehaviour {
         float distance = Vector3.Distance(target.position, transform.position);
 
         if (distance <= lookRadius) {
+            
             agent.SetDestination(target.position);
 
             if (distance <= agent.stoppingDistance) {
