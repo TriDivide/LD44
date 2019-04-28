@@ -38,7 +38,6 @@ public class PlayerController : MonoBehaviour {
         motor.Rotate(rotateVector);
 
         if (Input.GetKeyDown("space")) {
-            PlayerModel.Instance.UpdateHealth(-1);
         }
     }
 

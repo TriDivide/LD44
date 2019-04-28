@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour {
 
     [SerializeField]
-    private Text healthText, collectableText;
+    private Text healthText, collectableText, ammoText, leechText;
 
     private GameManager manager;
 
@@ -18,9 +18,15 @@ public class UIManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        float currentHealth = PlayerModel.Instance.getHealth();
+        float currentHealth = PlayerModel.Instance.GetHealth();
         print("Number of Collectables: " + GameObject.FindGameObjectsWithTag("CollectableOne").Length.ToString());
         healthText.text = "Blood = " + currentHealth + "/100";
+
+        bool isLeechEnabled = PlayerModel.Instance.PlayerHasLeech();
+        leechText.enabled = isLeechEnabled;
+
+        int currentAmmoCount = PlayerModel.Instance.GetAmmo();
+        ammoText.text = "Arrows = " + currentAmmoCount;
 
         collectableCount = GameObject.FindGameObjectsWithTag("CollectableOne").Length;
 

@@ -9,6 +9,8 @@ public class PlayerModel {
 
     private int playerHealth, playerAmmo;
 
+    private bool hasLeech = false;
+
     public static PlayerModel Instance {
         get {
             if (_instance == null) {
@@ -27,15 +29,23 @@ public class PlayerModel {
         playerHealth += valueToAdd;        
     }
 
-    public void updateAmmoCount(int valueToAdd) {
+    public void UpdateAmmoCount(int valueToAdd) {
         playerAmmo += valueToAdd;
     }
 
-    public int getAmmo() {
+    public int GetAmmo() {
         return playerAmmo;
     }
 
-    public float getHealth() {
+    public bool PlayerHasLeech() {
+        return hasLeech;
+    }
+
+    public void SetLeech(bool newLeechState) {
+        hasLeech = newLeechState;
+    }
+
+    public float GetHealth() {
        // print("playerHealth: " + playerHealth);  
         return playerHealth;
     }
