@@ -8,6 +8,7 @@ TagManager:
   - BankTrigger
   - MerchantTrigger
   - PrompPanel
+  - PortalPanel
   layers:
   - Default
   - TransparentFX

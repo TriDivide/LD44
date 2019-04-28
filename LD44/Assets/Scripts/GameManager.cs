@@ -31,4 +31,13 @@ public class GameManager: MonoBehaviour {
     public void OnQuit() {
         Application.Quit();
     }
+
+    public void SelectLevel() {
+        SceneManager.LoadScene("Sandbox");
+    }
+
+    public void CancelSelect() {
+        GameObject.FindGameObjectWithTag("Player").SetActive(true);
+        GameObject.FindGameObjectWithTag("PortalPanel").SetActive(false);
+    }
 }

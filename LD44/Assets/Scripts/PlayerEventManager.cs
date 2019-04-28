@@ -84,9 +84,14 @@ public class PlayerEventManager : MonoBehaviour {
         else if (other.gameObject.tag == "MerchantTrigger") {
             currentState = MERCHANT_PROMPT_STATE;
             prompted = true;
-        } else if (other.gameObject.tag == "BankTrigger") {
+        }
+        else if (other.gameObject.tag == "BankTrigger") {
             currentState = BANK_PROMPT_STATE;
             prompted = true;
+        }
+        else if (other.gameObject.tag == "PortalTrigger") {
+            GameObject.FindGameObjectWithTag("Player").SetActive(false);
+            GameObject.FindGameObjectWithTag("PortalPanel").SetActive(true);
         }
     }
 
