@@ -6,12 +6,13 @@ public class MazeLoader : MonoBehaviour {
     [SerializeField]
     private int mazeRows, mazeColumns;
     [SerializeField]
-    private GameObject wall, collectable;
+    private GameObject wall, collectable, hostile;
     [SerializeField]
     private float size = 2f;
 
     [SerializeField]
-    private int number = 5;
+    private int collectableNumber = 5;
+    private int enemyNumber = 6;
 
     private MazeCell[,] mazeCells;
 
@@ -24,7 +25,11 @@ public class MazeLoader : MonoBehaviour {
         GameObject[] cells = GameObject.FindGameObjectsWithTag("cell");
 
         for(int i = 0; i < cells.Length; i++) {
-           // cells[i].BuildNavMesh
+            NavMeshSurface surface = cells[i].GetComponent<NavMeshSurface>();
+
+            if (surface != null) {
+                surface.BuildNavMesh();
+            }
         }
     }
 
@@ -47,10 +52,16 @@ public class MazeLoader : MonoBehaviour {
 
                 // add a collectable at position.
                 int random = Random.Range(1, 10);
-                if (random == number) {
+                if (random == collectableNumber) {
                     mazeCells[r, c].item = Instantiate(collectable, new Vector3(r * size, -(size / 2f) + 1, c * size), Quaternion.identity) as GameObject;
                     mazeCells[r, c].item.name = "Item " + r + ", " + c;
                     mazeCells[r, c].item.transform.Rotate(Vector3.right, 90f);
+                }
+
+                if (random == enemyNumber) {
+                    mazeCells[r, c].hostile = Instantiate(hostile, new Vector3(r * size, -(size / 2f) + 3, c * size), Quaternion.identity) as GameObject;
+                    mazeCells[r, c].hostile.name = "hostile " + r + ", " + c;
+                    mazeCells[r, c].hostile.transform.Rotate(Vector3.right, 90f);
                 }
 
                 if (c == 0) {
