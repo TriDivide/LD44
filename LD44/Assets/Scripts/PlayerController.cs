@@ -42,10 +42,5 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    void OnTriggerEnter(Collider other) {
-        print("collided with object: " + other.gameObject.tag);
-        if (other.gameObject.tag == "CollectableOne") {
-            Destroy(other.gameObject);
-        }
-    }
+
 }
