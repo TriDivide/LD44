@@ -9,6 +9,8 @@ TagManager:
   - MerchantTrigger
   - PrompPanel
   - PortalPanel
+  - PortalTrigger
+  - SecondCamera
   layers:
   - Default
   - TransparentFX

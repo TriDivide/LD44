@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class GameManager: MonoBehaviour {
 
     [SerializeField]
-    private GameObject gameOverPanel;
+    private GameObject gameOverPanel, portalPanel;
 
     private GameObject player;
 
@@ -37,7 +37,6 @@ public class GameManager: MonoBehaviour {
     }
 
     public void CancelSelect() {
-        GameObject.FindGameObjectWithTag("Player").SetActive(true);
-        GameObject.FindGameObjectWithTag("PortalPanel").SetActive(false);
+        portalPanel.SetActive(false);
     }
 }

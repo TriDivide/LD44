@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerEventManager : MonoBehaviour {
     [SerializeField]
-    private GameObject merchantPanel, bankerPanel, promptPanel;
+    private GameObject merchantPanel, bankerPanel, promptPanel, portalPanel;
         
     [SerializeField]
     private Text promptText;
@@ -27,7 +27,6 @@ public class PlayerEventManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        print("CurrentState: " + currentState);
         if (currentState == MERCHANT_PROMPT_STATE) {
             promptText.text = "Press \"SPACE\" to barter with your blood";
         }
@@ -35,21 +34,17 @@ public class PlayerEventManager : MonoBehaviour {
             promptText.text = "Press \"SPACE\" to request blood";
         }
 
-            print("not prompted");
             if (currentState == MERCHANT_PROMPT_STATE) {
-                print("show merchantPrompt");
                 merchantPanel.SetActive(false);
                 promptPanel.SetActive(true);
                 bankerPanel.SetActive(false);
             } else if (currentState == BANK_PROMPT_STATE) {
-                print("show Bank Prompt");
                 merchantPanel.SetActive(false);
                 promptPanel.SetActive(true);
                 bankerPanel.SetActive(false);
             }
 
         if (Input.GetKeyDown("space") && prompted) {
-            print("display menus");
             if (currentState == BANK_PROMPT_STATE) {
                 currentState = BANK_SCREEN_STATE;
             }
@@ -69,7 +64,6 @@ public class PlayerEventManager : MonoBehaviour {
             }
         }
         if (currentState == STATE_NORMAL) {
-            print("hide all panels");
             merchantPanel.SetActive(false);
             promptPanel.SetActive(false);
             bankerPanel.SetActive(false);   
@@ -80,18 +74,14 @@ public class PlayerEventManager : MonoBehaviour {
         print("collided with object: " + other.gameObject.tag);
         if (other.gameObject.tag == "CollectableOne") {
             Destroy(other.gameObject);
-        }
-        else if (other.gameObject.tag == "MerchantTrigger") {
+        } else if (other.gameObject.tag == "MerchantTrigger") {
             currentState = MERCHANT_PROMPT_STATE;
             prompted = true;
-        }
-        else if (other.gameObject.tag == "BankTrigger") {
+        } else if (other.gameObject.tag == "BankTrigger") {
             currentState = BANK_PROMPT_STATE;
             prompted = true;
-        }
-        else if (other.gameObject.tag == "PortalTrigger") {
-            GameObject.FindGameObjectWithTag("Player").SetActive(false);
-            GameObject.FindGameObjectWithTag("PortalPanel").SetActive(true);
+        } else if (other.gameObject.tag == "PortalTrigger") {
+            portalPanel.SetActive(true);
         }
     }
 
@@ -103,6 +93,8 @@ public class PlayerEventManager : MonoBehaviour {
         else if (other.gameObject.tag == "BankTrigger") {
             currentState = STATE_NORMAL;
             prompted = false;
+        } else if (other.gameObject.tag == "PortalTrigger") {
+            portalPanel.SetActive(false);
         }
     }
 }
