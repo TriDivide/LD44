@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.AI;
 
 public class MazeLoader : MonoBehaviour {
     [SerializeField]
@@ -20,6 +21,11 @@ public class MazeLoader : MonoBehaviour {
 
         MazeAlgorithm ma = new HuntAndKillMazeAlgorithm(mazeCells);
         ma.CreateMaze();
+        GameObject[] cells = GameObject.FindGameObjectsWithTag("cell");
+
+        for(int i = 0; i < cells.Length; i++) {
+           // cells[i].BuildNavMesh
+        }
     }
 
     // Update is called once per frame

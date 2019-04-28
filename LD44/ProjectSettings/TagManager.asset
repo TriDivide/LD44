@@ -11,6 +11,7 @@ TagManager:
   - PortalPanel
   - PortalTrigger
   - SecondCamera
+  - Enemy
   layers:
   - Default
   - TransparentFX
