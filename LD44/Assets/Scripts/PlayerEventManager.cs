@@ -22,7 +22,7 @@ public class PlayerEventManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+        promptPanel.SetActive(false);
 	}
 	
 	// Update is called once per frame
@@ -34,15 +34,15 @@ public class PlayerEventManager : MonoBehaviour {
             promptText.text = "Press \"SPACE\" to request blood";
         }
 
-            if (currentState == MERCHANT_PROMPT_STATE) {
-                merchantPanel.SetActive(false);
-                promptPanel.SetActive(true);
-                bankerPanel.SetActive(false);
-            } else if (currentState == BANK_PROMPT_STATE) {
-                merchantPanel.SetActive(false);
-                promptPanel.SetActive(true);
-                bankerPanel.SetActive(false);
-            }
+        if (currentState == MERCHANT_PROMPT_STATE) {
+            merchantPanel.SetActive(false);
+            promptPanel.SetActive(true);
+            bankerPanel.SetActive(false);
+        } else if (currentState == BANK_PROMPT_STATE) {
+            merchantPanel.SetActive(false);
+            promptPanel.SetActive(true);
+            bankerPanel.SetActive(false);
+        }
 
         if (Input.GetKeyDown("space") && prompted) {
             if (currentState == BANK_PROMPT_STATE) {
@@ -65,7 +65,7 @@ public class PlayerEventManager : MonoBehaviour {
         }
         if (currentState == STATE_NORMAL) {
             merchantPanel.SetActive(false);
-            promptPanel.SetActive(false);
+         //   promptPanel.SetActive(false);
             bankerPanel.SetActive(false);   
         }	
 	}
@@ -89,12 +89,15 @@ public class PlayerEventManager : MonoBehaviour {
         if (other.gameObject.tag == "MerchantTrigger") {
             currentState = STATE_NORMAL;
             prompted = false;
+            promptPanel.SetActive(false);
         }
         else if (other.gameObject.tag == "BankTrigger") {
             currentState = STATE_NORMAL;
             prompted = false;
+            promptPanel.SetActive(false);
         } else if (other.gameObject.tag == "PortalTrigger") {
             portalPanel.SetActive(false);
+            promptPanel.SetActive(false);
         }
     }
 }

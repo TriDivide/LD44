@@ -302,6 +302,16 @@ Prefab:
       propertyPath: portalPanel
       value: 
       objectReference: {fileID: 1619469523}
+    - target: {fileID: 114979186693729920, guid: a47f71ea834c2534080a87575d37b741,
+        type: 2}
+      propertyPath: promptPanel
+      value: 
+      objectReference: {fileID: 1418990288}
+    - target: {fileID: 114979186693729920, guid: a47f71ea834c2534080a87575d37b741,
+        type: 2}
+      propertyPath: promptText
+      value: 
+      objectReference: {fileID: 737185825}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a47f71ea834c2534080a87575d37b741, type: 2}
   m_IsPrefabAsset: 0
@@ -580,12 +590,12 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114071266755941592, guid: e8d91cedbb878314194b1a619a953fd6,
+    - target: {fileID: 114535371250699600, guid: e8d91cedbb878314194b1a619a953fd6,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1282388769}
-    - target: {fileID: 114535371250699600, guid: e8d91cedbb878314194b1a619a953fd6,
+    - target: {fileID: 114071266755941592, guid: e8d91cedbb878314194b1a619a953fd6,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

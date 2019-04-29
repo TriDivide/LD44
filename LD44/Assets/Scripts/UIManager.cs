@@ -19,7 +19,7 @@ public class UIManager : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         float currentHealth = PlayerModel.Instance.GetHealth();
-        print("Number of Collectables: " + GameObject.FindGameObjectsWithTag("CollectableOne").Length.ToString());
+       // print("Number of Collectables: " + GameObject.FindGameObjectsWithTag("CollectableOne").Length.ToString());
         healthText.text = "Blood = " + currentHealth + "/100";
 
         bool isLeechEnabled = PlayerModel.Instance.PlayerHasLeech();
@@ -30,11 +30,13 @@ public class UIManager : MonoBehaviour {
 
         collectableCount = GameObject.FindGameObjectsWithTag("CollectableOne").Length;
 
-        print("collectableCount" + collectableCount);
-        collectableText.text = collectableCount.ToString() + " Remaining";
+        collectableText.text = collectableCount.ToString() + " Rift shards remaining";
 
         if (collectableCount <= 0) {
-            manager.showGameOverScreen();
+            manager.showCompleteScreen();
+        }
+        else {
+            manager.hideCompleteScreen();
         }
     }
 }

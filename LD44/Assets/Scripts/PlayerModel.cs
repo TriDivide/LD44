@@ -9,6 +9,8 @@ public class PlayerModel {
 
     private int playerHealth, playerAmmo;
 
+    private bool isLevelUnlocked = false;
+
     private bool hasLeech = false;
 
     public static PlayerModel Instance {
@@ -31,6 +33,14 @@ public class PlayerModel {
 
     public void UpdateAmmoCount(int valueToAdd) {
         playerAmmo += valueToAdd;
+    }
+
+    public bool HasBroughtLevel() {
+        return isLevelUnlocked;
+    }
+
+    public void setLevelUnlock() {
+        isLevelUnlocked = !isLevelUnlocked;
     }
 
     public int GetAmmo() {

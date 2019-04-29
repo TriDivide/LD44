@@ -29,9 +29,10 @@ public class PurchaseManager : MonoBehaviour {
     public void PurchaseLeech() {
         float currentBlood = PlayerModel.Instance.GetHealth();
 
-        if (currentBlood > 50) {
-            PlayerModel.Instance.SetLeech(true);
-            PlayerModel.Instance.UpdateHealth(-50);
+        if (currentBlood > 10) {
+            //PlayerModel.Instance.SetLeech(true);
+            PlayerModel.Instance.setLevelUnlock();
+            PlayerModel.Instance.UpdateHealth(-30);
         }
         else {
             print("Not enough blood. try getting a transfusion at the bank");

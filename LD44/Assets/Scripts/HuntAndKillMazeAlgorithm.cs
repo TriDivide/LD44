@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.AI;
 
 public class HuntAndKillMazeAlgorithm : MazeAlgorithm {
 
@@ -26,7 +27,6 @@ public class HuntAndKillMazeAlgorithm : MazeAlgorithm {
 
     private void Kill() {
         while (RouteStillAvailable(currentRow, currentColumn)) {
-            // int direction = Random.Range (1, 5);
             int direction = ProceduralNumberGenerator.GetNextNumber();
 
             if (direction == 1 && CellIsAvailable(currentRow - 1, currentColumn)) {

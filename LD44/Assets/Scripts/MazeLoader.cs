@@ -11,6 +11,9 @@ public class MazeLoader : MonoBehaviour {
     private float size = 2f;
 
     [SerializeField]
+    private NavMeshSurface surface;
+
+    [SerializeField]
     private int collectableNumber = 5;
     private int enemyNumber = 6;
 
@@ -22,19 +25,9 @@ public class MazeLoader : MonoBehaviour {
 
         MazeAlgorithm ma = new HuntAndKillMazeAlgorithm(mazeCells);
         ma.CreateMaze();
-        GameObject[] cells = GameObject.FindGameObjectsWithTag("cell");
 
-        print("MazeCElls: " + mazeCells.Length);
-        print("cells: " + cells.Length);
-        if (cells != null) {
-            for (int i = 0; i < cells.Length; i++) {
-                NavMeshSurface surface = cells[i].GetComponent<NavMeshSurface>();
-
-                if (surface != null) {
-                    surface.BuildNavMesh();
-                }
-            }
-        }
+    //    surface.BuildNavMesh();
+        
     }
 
     // Update is called once per frame
@@ -66,29 +59,33 @@ public class MazeLoader : MonoBehaviour {
                 // Adds an enemy at position
                 if (random == enemyNumber) {
                     
-                    mazeCells[r, c].hostile = Instantiate(hostile, new Vector3(r * size, 3, c * size), hostile.transform.rotation) as GameObject;
-                    GameObject baddy = mazeCells[r, c].hostile;
-                    baddy.name = "hostile " + r + ", " + c;
+                //    mazeCells[r, c].hostile = Instantiate(hostile, new Vector3(r * size, 3, c * size), hostile.transform.rotation) as GameObject;
+                  //  GameObject baddy = mazeCells[r, c].hostile;
+                    //baddy.name = "hostile " + r + ", " + c;
                     //baddy.transform.Rotate(Vector3.right, 90f);
                 }
 
                 if (c == 0) {
                     mazeCells[r, c].westWall = Instantiate(wall, new Vector3(r * size, 0, (c * size) - (size / 2f)), Quaternion.identity) as GameObject;
                     mazeCells[r, c].westWall.name = "West Wall " + r + "," + c;
+
                 }
 
                 mazeCells[r, c].eastWall = Instantiate(wall, new Vector3(r * size, 0, (c * size) + (size / 2f)), Quaternion.identity) as GameObject;
                 mazeCells[r, c].eastWall.name = "East Wall " + r + "," + c;
 
+
                 if (r == 0) {
                     mazeCells[r, c].northWall = Instantiate(wall, new Vector3((r * size) - (size / 2f), 0, c * size), Quaternion.identity) as GameObject;
                     mazeCells[r, c].northWall.name = "North Wall " + r + "," + c;
                     mazeCells[r, c].northWall.transform.Rotate(Vector3.up * 90f);
+
                 }
 
                 mazeCells[r, c].southWall = Instantiate(wall, new Vector3((r * size) + (size / 2f), 0, c * size), Quaternion.identity) as GameObject;
                 mazeCells[r, c].southWall.name = "South Wall " + r + "," + c;
                 mazeCells[r, c].southWall.transform.Rotate(Vector3.up * 90f);
+
             }
         }
     }
